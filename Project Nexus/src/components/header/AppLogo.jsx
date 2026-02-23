@@ -1,8 +1,9 @@
+import reactSvg from '../../assets/react.svg';
 
 export const AppLogo = () => {
     return (
         <div>
-            This is the app logo
+            <img src={reactSvg} alt="React logo" />
         </div>
     );
 }

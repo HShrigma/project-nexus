@@ -1,3 +1,4 @@
+import Filter from "./filter/Filter";
 import ProductCounter from "./product/ProductCounter";
 import ProductGrid from "./ProductGrid";
 
@@ -7,6 +8,7 @@ export const Products = () => {
             <ProductCounter/>
             <ProductGrid />
             <button>Load More</button>
+            <Filter/>
         </div>
     )
 }

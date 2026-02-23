@@ -1,13 +1,11 @@
 import Header from './components/header/Header'
-import ProductCounter from './components/products/ProductCounter';
-import ProductGrid from './components/products/ProductGrid';
+import Products from './components/products/Products';
 
 function App() {
     return (
         <>
             <Header />
-            <ProductCounter />
-            <ProductGrid />
+            <Products/>
         </>
     )
 }

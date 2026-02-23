@@ -1,4 +1,4 @@
-import reactSvg from '../../assets/react.svg';
+import reactSvg from '../../../assets/react.svg';
 
 export const Product = ({product}) => {
     return (

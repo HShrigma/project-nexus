@@ -1,4 +1,4 @@
-import ProductCounter from "./ProductCounter";
+import ProductCounter from "./product/ProductCounter";
 import ProductGrid from "./ProductGrid";
 
 export const Products = () => {

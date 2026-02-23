@@ -1,11 +1,13 @@
 import Header from './components/header/Header'
 import ProductCounter from './components/products/ProductCounter';
+import ProductGrid from './components/products/ProductGrid';
 
 function App() {
   return (
     <>
           <Header />
           <ProductCounter/>
+          <ProductGrid/>
           <h1 className='ml-20 bg-red-200 text-red-800'> Hello World</h1>
     </>
   )

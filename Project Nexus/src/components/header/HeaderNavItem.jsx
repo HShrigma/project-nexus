@@ -1,8 +1,9 @@
-
-export const HeaderNavItem = () => {
+export const HeaderNavItem = ({category}) => {
     return (
+
+        category && 
         <div>
-            This is a nav Category
+            {category}
         </div>
     );
 

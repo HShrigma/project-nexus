@@ -1,19 +1,21 @@
 import ColorFilter from "./filters/ColorFilter";
-import {Sorter} from "./Sorter";
+import PriceFilter from "./filters/PriceFilter";
+import { Sorter } from "./Sorter";
 
-export const Filter = ({minPrice, maxPrice, onSortOptionSelected, onFilterAdded, onFilterRemoved}) => {
+export const Filter = ({ minPrice, maxPrice, onSortOptionSelected, onFilterAdded, onFilterRemoved }) => {
     return (
         <div>
-            This is a filter
-            <ColorFilter 
-                onColorSelected={(value) => onFilterAdded("color", value)}
-                onColorDeselected={(value) => onFilterRemoved("color", value)} 
-            />
             <div>
                 Filter on:
-                <div> Price </div>
-                <div> Price Min: {minPrice}</div>
-                <div> Price Max: {maxPrice}</div>
+                <ColorFilter
+                    onColorSelected={(value) => onFilterAdded("color", value)}
+                    onColorDeselected={(value) => onFilterRemoved("color", value)}
+                />
+                <PriceFilter
+                    minPrice={minPrice}
+                    maxPrice={maxPrice}
+                    onPriceRangeChanged={(min, max) => onFilterAdded("price", {min:min, max:max})}
+                />
             </div>
             <Sorter onSortOptionSelected={onSortOptionSelected} />
         </div>);

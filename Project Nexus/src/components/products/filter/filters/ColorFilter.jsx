@@ -3,13 +3,10 @@ export const ColorFilter = ({ onColorSelected, onColorDeselected }) => {
         const value = event.target.value;
         const isChecked = event.target.checked;
         
-        if (isChecked) {
-            console.log(`Selected color: ${value}`);
+        if (isChecked) 
             onColorSelected(value);
-        } else {
-            console.log(`Deselected color: ${value}`);
+        else 
             onColorDeselected(value);
-        }
     };
 
     return (

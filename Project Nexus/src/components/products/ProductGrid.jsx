@@ -6,12 +6,16 @@ export const ProductGrid = ({ products, sortOption, displayLimit, filters }) => 
         let filteredProducts = [...products];
         if (!filters) return filteredProducts;
 
-        console.log("Filters: " + filters);
         const colorFilters = filters.filter(f => f[0] === "color").map(f => f[1]);
-
-        if(colorFilters.length > 0){
-            filteredProducts = filteredProducts.filter(prod => colorFilters.includes(prod.color));
-        }
+        const priceFilter = filters.filter(f => f[0] === "price").map(f => f[1])[0];
+            filteredProducts = filteredProducts.filter(prod => {
+                if(colorFilters.length > 0) 
+                    if(!colorFilters.includes(prod.color)) return false;
+                if (priceFilter) 
+                    if (prod.price < priceFilter.min || prod.price > priceFilter.max) return false;
+                return true;
+            });
+        
         return filteredProducts;
     }
 

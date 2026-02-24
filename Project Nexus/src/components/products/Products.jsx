@@ -12,7 +12,14 @@ export const Products = ({selectedCategory, products}) => {
     const [filters, setFilters] = useState([]);
 
 
-    useEffect(() => products ? setDisplayCount(getCountFirst()) : setDisplayCount(0), [products]);
+    useEffect(() => { 
+        if (!products) {
+            setDisplayCount(0);
+            return;
+        } 
+        setDisplayCount(getCountFirst()) 
+        setFilters(prev => prev.filter(f => f[0] !== "price"));
+    }, [products]);
     function getCountFirst() {
         if (!products) return 0; 
         return displayStep <= products.length ? displayStep : products.length;
@@ -20,7 +27,13 @@ export const Products = ({selectedCategory, products}) => {
     const handleLoadMore = () => setDisplayCount(prev => prev + displayStep <= products.length ? prev + displayStep : products.length);
 
     const handleOnFilterAdded = (key,value) => {
-        if(filters.includes([key,value])) return;
+        if(filters.includes([key,value]) && key !== "price") return;
+        if(key === "price"){
+            let newFilters = [...filters].filter(f => f[0] !== key);
+            newFilters.push([key,value]);
+            setFilters(newFilters);
+            return;
+        }
         setFilters(prev => [...prev, [key,value]]);
     }
 

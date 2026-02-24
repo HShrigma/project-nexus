@@ -1,10 +1,11 @@
-export const HeaderNavItem = ({category}) => {
+
+export const HeaderNavItem = ({category, onCategorySelected}) => {
     return (
 
         category && 
-        <div>
+        <button onClick={() => onCategorySelected?.(category)}>
             {category}
-        </div>
+        </button>
     );
 
 }

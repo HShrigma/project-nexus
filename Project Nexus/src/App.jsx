@@ -7,7 +7,6 @@ import { useProducts } from './hooks/useProducts';
 
 function App() {
     const { categories, selectedCategory, handleCategorySelected } = useCategories();
-    const { getProductsForCategory } = useProducts(selectedCategory);
     return (
         <>
             <Header
@@ -16,7 +15,6 @@ function App() {
             />
             <Products
                 selectedCategory={selectedCategory}
-                products={getProductsForCategory()}
             />
             <Footer />
         </>

@@ -12,19 +12,35 @@ export const useProducts = (selectedCategory) => {
         { id: 9, categoryId: 2, name: "Shoes 7", description: "sample description 7", price: 39, rating: 4, color: "blue" },
         { id: 10, categoryId: 1, name: "Bag 3", description: "sample description 3", price: 26, rating: 5, color: "blue" }]);
 
-    const columns = 4;
+    const getColumns = () => {
+        const width = window.innerWidth;
+        if (width >= 1280) return 4; // xl
+        if (width >= 1024) return 3; // lg
+        if (width >= 640) return 2;  // sm
+        return 1;                     // default
+    };
+    const [columns, setColumns] = useState(getColumns());
     const rowsPerPage = 5;
     const pageSize = columns * rowsPerPage;
+    const [displayCount, setDisplayCount] = useState(pageSize);
 
     const [filters, setFilters] = useState([]);
     const [sortOption, setSortOption] = useState(null);
-    const [displayCount, setDisplayCount] = useState(pageSize);
 
     useEffect(() => {
-        setFilters([]);
-        setSortOption(null);
+        setFilters(prev => prev.filter(f => f[0] !== "price"));
         setDisplayCount(pageSize);
     }, [selectedCategory]);
+
+    useEffect(() => {
+        const handleResize = () => setColumns(getColumns());
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    useEffect(() => {
+        setDisplayCount(columns * rowsPerPage);
+    }, [columns, selectedCategory]);
 
     const categoryProducts = useMemo(() =>
         products.filter(prod => prod.categoryId === selectedCategory?.id),
@@ -64,9 +80,9 @@ export const useProducts = (selectedCategory) => {
     const loadMore = () => setDisplayCount(prev => Math.min(prev + pageSize, sortedProducts.length));
 
     const addFilter = (key, value) => {
-        if(!key) return;
+        if (!key) return;
         // add or update for price range
-        if(key === "price"){
+        if (key === "price") {
             setFilters(prev => {
                 const newFilters = prev.filter(f => f[0] !== key);
                 return [...newFilters, [key, value]];
@@ -75,7 +91,7 @@ export const useProducts = (selectedCategory) => {
         }
 
         //simply add for color, brand, etc.
-        setFilters(prev => [...prev, [key,value]]);
+        setFilters(prev => [...prev, [key, value]]);
     }
 
     const removeFilter = (key, value) => setFilters(prev => prev.filter(f => !(f[0] === key && f[1] === value)));

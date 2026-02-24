@@ -1,7 +1,7 @@
-export const ProductCounter = () => {
+export const ProductCounter = ({ productsLength, currentCount }) => {
     return (
         <div>
-            X out of Y items displayed
+            {currentCount} out of {productsLength} items displayed
         </div>
     )
 }

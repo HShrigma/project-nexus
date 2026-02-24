@@ -6,6 +6,8 @@ export const Sorter = ({onSortOptionSelected}) => {
             <button onClick={() => onSortOptionSelected("Z-A")}> Alphabetical (Z–A) </button>
             <button onClick={() => onSortOptionSelected("0-1")}> Price (Low to High) </button>
             <button onClick={() => onSortOptionSelected("1-0")}> Price (High to Low) </button>
+            <button onClick={() => onSortOptionSelected("R+")}> Rating (Low to High) </button>
+            <button onClick={() => onSortOptionSelected("R-")}> Rating (High to Low) </button>
         </div>
     );
 }

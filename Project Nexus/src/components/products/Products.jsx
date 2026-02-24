@@ -25,6 +25,8 @@ export const Products = ({selectedCategory, products}) => {
             case "Z-A":
             case "0-1":
             case "1-0":
+            case "R-":
+            case "R+":
                 setCurrentSortOption(option);
                 return;
             default:

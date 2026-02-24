@@ -19,6 +19,12 @@ export const ProductGrid = ({ products, sortOption, displayLimit }) => {
             case "1-0":
                 sortedProducts.sort((a, b) => b.price - a.price);
                 break;
+            case "R+":
+                sortedProducts.sort((a, b) => a.rating - b.rating);
+                break;
+            case "R-":
+                sortedProducts.sort((a, b) => b.rating - a.rating);
+                break;
             default:
                 break;
         }

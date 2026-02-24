@@ -12,10 +12,19 @@ export const useProducts = (selectedCategory) => {
         { id: 9, categoryId: 2, name: "Shoes 7", description: "sample description 7", price: 39, rating: 4, color: "blue" },
         { id: 10, categoryId: 1, name: "Bag 3", description: "sample description 3", price: 26, rating: 5, color: "blue" }]);
 
+    const columns = 4;
+    const rowsPerPage = 5;
+    const pageSize = columns * rowsPerPage;
+
     const [filters, setFilters] = useState([]);
     const [sortOption, setSortOption] = useState(null);
-    const displayStep = 5;
-    const [displayCount, setDisplayCount] = useState(displayStep);
+    const [displayCount, setDisplayCount] = useState(pageSize);
+
+    useEffect(() => {
+        setFilters([]);
+        setSortOption(null);
+        setDisplayCount(pageSize);
+    }, [selectedCategory]);
 
     const categoryProducts = useMemo(() =>
         products.filter(prod => prod.categoryId === selectedCategory?.id),
@@ -27,12 +36,13 @@ export const useProducts = (selectedCategory) => {
 
     const filteredProducts = useMemo(() => {
         let filtered = [...categoryProducts];
-
-        filters.forEach(([key, value]) => {
-            if (key === "color") filtered = filtered.filter(p => p.color === value);
-            if (key === "price") filtered = filtered.filter(p => p.price >= value.min && p.price <= value.max);
+        const colorFilters = filters.filter(f => f[0] === "color").map(f => f[1]);
+        const priceFilter = filters.filter(f => f[0] === "price").map(f => f[1])[0];
+        filtered = filtered.filter(prod => {
+            if (colorFilters.length > 0 && !colorFilters.includes(prod.color)) return false;
+            if (priceFilter && !(prod.price >= priceFilter.min && prod.price <= priceFilter.max)) return false;
+            return true;
         });
-
         return filtered;
     }, [categoryProducts, filters]);
 
@@ -51,13 +61,21 @@ export const useProducts = (selectedCategory) => {
 
     const visibleProducts = useMemo(() => sortedProducts.slice(0, displayCount), [sortedProducts, displayCount]);
 
-    const loadMore = () => setDisplayCount(prev => Math.min(prev + displayStep, sortedProducts.length));
+    const loadMore = () => setDisplayCount(prev => Math.min(prev + pageSize, sortedProducts.length));
 
     const addFilter = (key, value) => {
-        setFilters(prev => {
-            const newFilters = prev.filter(f => f[0] !== key); // replace existing
-            return [...newFilters, [key, value]];
-        });
+        if(!key) return;
+        // add or update for price range
+        if(key === "price"){
+            setFilters(prev => {
+                const newFilters = prev.filter(f => f[0] !== key);
+                return [...newFilters, [key, value]];
+            });
+            return;
+        }
+
+        //simply add for color, brand, etc.
+        setFilters(prev => [...prev, [key,value]]);
     }
 
     const removeFilter = (key, value) => setFilters(prev => prev.filter(f => !(f[0] === key && f[1] === value)));

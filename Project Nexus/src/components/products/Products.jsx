@@ -6,7 +6,6 @@ import ProductGrid from "./ProductGrid";
 
 export const Products = ({selectedCategory, products}) => {
     const displayStep = 5;
-
     const [displayedCount, setDisplayCount] = useState(0);
     const [currentSortOption, setCurrentSortOption] = useState(null);
     const [filters, setFilters] = useState([]);

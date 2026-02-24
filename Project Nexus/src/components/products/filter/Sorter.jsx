@@ -1,14 +1,74 @@
-export const Sorter = ({onSortOptionSelected}) => {
+export const Sorter = ({ onSortOptionSelected }) => {
+    const handleChange = (event) => {
+        onSortOptionSelected(event.target.value);
+    };
+
     return (
         <div>
-            Sort by:
-            <button onClick={() => onSortOptionSelected("A-Z")}> Alphabetical (A–Z) </button>
-            <button onClick={() => onSortOptionSelected("Z-A")}> Alphabetical (Z–A) </button>
-            <button onClick={() => onSortOptionSelected("0-1")}> Price (Low to High) </button>
-            <button onClick={() => onSortOptionSelected("1-0")}> Price (High to Low) </button>
-            <button onClick={() => onSortOptionSelected("R+")}> Rating (Low to High) </button>
-            <button onClick={() => onSortOptionSelected("R-")}> Rating (High to Low) </button>
+            <div style={{ marginBottom: '8px' }}>Sort by:</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <input
+                        type="radio"
+                        name="sortOption"
+                        value="A-Z"
+                        onChange={handleChange}
+                    />
+                    Alphabetical (A–Z)
+                </label>
+                
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <input
+                        type="radio"
+                        name="sortOption"
+                        value="Z-A"
+                        onChange={handleChange}
+                    />
+                    Alphabetical (Z–A)
+                </label>
+                
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <input
+                        type="radio"
+                        name="sortOption"
+                        value="0-1"
+                        onChange={handleChange}
+                    />
+                    Price (Low to High)
+                </label>
+                
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <input
+                        type="radio"
+                        name="sortOption"
+                        value="1-0"
+                        onChange={handleChange}
+                    />
+                    Price (High to Low)
+                </label>
+                
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <input
+                        type="radio"
+                        name="sortOption"
+                        value="R+"
+                        onChange={handleChange}
+                    />
+                    Rating (Low to High)
+                </label>
+                
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <input
+                        type="radio"
+                        name="sortOption"
+                        value="R-"
+                        onChange={handleChange}
+                    />
+                    Rating (High to Low)
+                </label>
+            </div>
         </div>
     );
-}
+};
+
 export default Sorter;

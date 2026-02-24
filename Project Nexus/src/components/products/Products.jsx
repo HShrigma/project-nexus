@@ -9,7 +9,7 @@ export const Products = ({selectedCategory, products}) => {
 
     const [displayedCount, setDisplayCount] = useState(getCountFirst());
     const [currentSortOption, setCurrentSortOption] = useState(null);
-
+    const [filters, setFilters] = useState([]);
 
 
     useEffect(() => products ? setDisplayCount(getCountFirst()) : setDisplayCount(0), [products]);
@@ -18,6 +18,17 @@ export const Products = ({selectedCategory, products}) => {
         return displayStep <= products.length ? displayStep : products.length;
     }
     const handleLoadMore = () => setDisplayCount(prev => prev + displayStep <= products.length ? prev + displayStep : products.length);
+
+    const handleOnFilterAdded = (key,value) => {
+        if(filters.includes([key,value])) return;
+        setFilters(prev => [...prev, [key,value]]);
+    }
+
+    const handleOnFilterRemoved = (key,value) => {
+        setFilters(prev => prev.filter(filter => {
+            return !(filter[0] === key && filter[1] === value);
+        }));
+    }
 
     const handleSortOptionSelected = (option) => {
         switch (option) {
@@ -48,12 +59,15 @@ export const Products = ({selectedCategory, products}) => {
                 products={products}
                 sortOption={currentSortOption}
                 displayLimit={displayedCount}
+                filters={filters}
             />
             <button onClick={handleLoadMore}>Load More</button>
             <Filter
                 minPrice={products ? Math.min(...products.map(prod => prod.price)) : 0}
                 maxPrice={products ? Math.max(...products.map(prod => prod.price)) : 0}
                 onSortOptionSelected={(option) => handleSortOptionSelected(option)} 
+                onFilterAdded={handleOnFilterAdded}
+                onFilterRemoved={handleOnFilterRemoved}
             />
         </div>
     )

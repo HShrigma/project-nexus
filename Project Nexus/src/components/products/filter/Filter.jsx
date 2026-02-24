@@ -1,16 +1,16 @@
+import ColorFilter from "./filters/ColorFilter";
 import {Sorter} from "./Sorter";
 
-export const Filter = ({minPrice, maxPrice, onSortOptionSelected}) => {
+export const Filter = ({minPrice, maxPrice, onSortOptionSelected, onFilterAdded, onFilterRemoved}) => {
     return (
         <div>
             This is a filter
+            <ColorFilter 
+                onColorSelected={(value) => onFilterAdded("color", value)}
+                onColorDeselected={(value) => onFilterRemoved("color", value)} 
+            />
             <div>
                 Filter on:
-                <div> Color: 
-                    <button>red</button>
-                    <button>green</button>
-                    <button>blue</button>
-                </div>
                 <div> Price </div>
                 <div> Price Min: {minPrice}</div>
                 <div> Price Max: {maxPrice}</div>

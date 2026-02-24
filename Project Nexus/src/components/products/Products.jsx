@@ -3,15 +3,17 @@ import Filter from "./filter/Filter";
 import ProductCounter from "./product/ProductCounter";
 import ProductGrid from "./ProductGrid";
 
-export const Products = ({selectedCategory}) => {
+export const Products = ({selectedCategory, products}) => {
     return (
         <div>
             <CategoryTitle
-                categoryTitle={selectedCategory ? selectedCategory?.name : ""}
-                categoryDescription={selectedCategory ? selectedCategory?.description : ""}
+                categoryTitle={selectedCategory?.name}
+                categoryDescription={selectedCategory?.description}
             />
             <ProductCounter/>
-            <ProductGrid />
+            <ProductGrid 
+                products={products?.filter(prod => prod.categoryId === selectedCategory?.id) }
+            />
             <button>Load More</button>
             <Filter/>
         </div>

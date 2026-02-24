@@ -1,4 +1,6 @@
-export const Filter = ({minPrice, maxPrice}) => {
+import {Sorter} from "./Sorter";
+
+export const Filter = ({minPrice, maxPrice, onSortOptionSelected}) => {
     return (
         <div>
             This is a filter
@@ -13,13 +15,7 @@ export const Filter = ({minPrice, maxPrice}) => {
                 <div> Price Min: {minPrice}</div>
                 <div> Price Max: {maxPrice}</div>
             </div>
-            <div>
-                Sort by:
-                <button> Alphabetical (A–Z) </button>
-                <button> Alphabetical (Z–A) </button>
-                <button> Price (Low to High) </button>
-                <button> Price (High to Low) </button>
-            </div>
+            <Sorter onSortOptionSelected={onSortOptionSelected} />
         </div>);
 }
 export default Filter;

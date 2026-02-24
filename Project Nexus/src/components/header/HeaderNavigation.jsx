@@ -7,7 +7,7 @@ export const HeaderNavigation = ({categories, onCategorySelected}) => {
             {categories.map(item => 
                 <HeaderNavItem
                     key={item.id}
-                    category={item.categoryName}
+                    category={item.name}
                     onCategorySelected={(category) => onCategorySelected?.(category)}
                 />)}
         </nav>

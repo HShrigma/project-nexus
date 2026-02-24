@@ -1,12 +1,15 @@
-import Category from "./category/Category";
+import CategoryTitle from "./category/CategoryTitle";
 import Filter from "./filter/Filter";
 import ProductCounter from "./product/ProductCounter";
 import ProductGrid from "./ProductGrid";
 
-export const Products = () => {
+export const Products = ({selectedCategory}) => {
     return (
         <div>
-            <Category/>
+            <CategoryTitle
+                categoryTitle={selectedCategory ? selectedCategory?.name : ""}
+                categoryDescription={selectedCategory ? selectedCategory?.description : ""}
+            />
             <ProductCounter/>
             <ProductGrid />
             <button>Load More</button>

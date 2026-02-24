@@ -1,11 +1,17 @@
-export const Filter = () => {
+export const Filter = ({minPrice, maxPrice}) => {
     return (
         <div>
             This is a filter
             <div>
                 Filter on:
-                <button> Color </button>
-                <button> Price </button>
+                <div> Color: 
+                    <button>red</button>
+                    <button>green</button>
+                    <button>blue</button>
+                </div>
+                <div> Price </div>
+                <div> Price Min: {minPrice}</div>
+                <div> Price Max: {maxPrice}</div>
             </div>
             <div>
                 Sort by:

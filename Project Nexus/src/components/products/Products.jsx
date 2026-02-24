@@ -28,7 +28,10 @@ export const Products = ({selectedCategory, products}) => {
                 products={products}
             />
             <button onClick={handleLoadMore}>Load More</button>
-            <Filter/>
+            <Filter
+                minPrice={products ? Math.min(...products.map(prod => prod.price)) : 0}
+                maxPrice={products ? Math.max(...products.map(prod => prod.price)) : 0}
+            />
         </div>
     )
 }

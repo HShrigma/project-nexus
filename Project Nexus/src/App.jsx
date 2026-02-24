@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Footer } from './components/footer/Footer';
 import Header from './components/header/Header'
 import Products from './components/products/Products';
+import { useCategories } from './hooks/useCategories';
 
 function App() {
-    const [categories, setCategories] = useState([{ id: 1, name: "Bags", description: "All bags" }, { id: 2, name: "Shoes", description: "All shoes" }]);
-    const [selectedCategory, setSelectedCategory] = useState();
-
     const [products, setProducts] = useState([
         { id: 1, categoryId: 1, name: "Bag 1", description: "sample description 1", price: 78, rating: 4 , color: "red"},
         { id: 2, categoryId: 1, name: "Bag 2", description: "sample description 2", price: 16, rating: 4 , color: "red"},
@@ -18,15 +16,7 @@ function App() {
         { id: 8, categoryId: 2, name: "Shoes 6", description: "sample description 6", price: 39, rating: 4, color: "blue" },
         { id: 9, categoryId: 2, name: "Shoes 7", description: "sample description 7", price: 39, rating: 4, color: "blue" },
         { id: 10, categoryId: 1, name: "Bag 3", description: "sample description 3", price: 26, rating: 5, color: "blue" }]);
-
-    useEffect(() => {
-        if (!selectedCategory) setSelectedCategory(categories[0]);
-    }, [categories]);
-
-    const handleCategorySelected = (categoryName) => {
-        if (!selectedCategory) setSelectedCategory(categories.find(cat => cat.name == categoryName));
-        if (categoryName !== selectedCategory.name) setSelectedCategory(categories.find(cat => cat.name == categoryName));
-    }
+    const { categories, selectedCategory, handleCategorySelected } = useCategories();
     return (
         <>
             <Header

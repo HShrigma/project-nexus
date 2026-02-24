@@ -3,7 +3,6 @@ import HeaderNavItem from "./HeaderNavItem";
 export const HeaderNavigation = ({categories, onCategorySelected}) => {
     return (
         <nav> 
-                This is navigation
             {categories.map(item => 
                 <HeaderNavItem
                     key={item.id}

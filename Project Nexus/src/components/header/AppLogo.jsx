@@ -1,13 +1,9 @@
-import reactSvg from '../../assets/react.svg';
+import { Gem } from "lucide-react";
 
 export const AppLogo = () => {
     return (
         <div className="flex sm:items-center  gap-2 font-serif text-xl tracking-wide">
-            <img 
-                className="h-6 w-auto"
-                src={reactSvg} 
-                alt="React logo"
-            />
+            <Gem className="h-6 w-auto" alt="Nexus logo"/>
             Nexus
         </div>
     );

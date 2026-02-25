@@ -1,7 +1,7 @@
 export const CategoryTitle = ({ categoryTitle, categoryDescription }) => {
     return (
         <div className="flex flex-col items-baseline gap-2 m-2 ">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl transition">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl transition-all">
                 {categoryTitle ?? "No selected category"}
             </h1>
 

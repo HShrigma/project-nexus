@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useProducts } from "../../hooks/useProducts";
 import CategoryTitle from "./category/CategoryTitle";
 import Filter from "./filter/Filter";
@@ -7,6 +7,7 @@ import ProductGrid from "./ProductGrid";
 
 export const Products = ({ selectedCategory }) => {
     const [showFilters, setShowFilters] = useState(false);
+
     const {
         products,
         totalProducts,
@@ -17,6 +18,8 @@ export const Products = ({ selectedCategory }) => {
         hasMore,
         minPrice,
         maxPrice,
+        filters,
+        sortOption
     } = useProducts(selectedCategory);
 
     return (
@@ -51,7 +54,9 @@ export const Products = ({ selectedCategory }) => {
                         <Filter
                             minPrice={minPrice}
                             maxPrice={maxPrice}
-                            onFilterAdded={addFilter}
+                            filters={filters}         
+                            sortOption={sortOption}
+                            onFilterAdded={addFilter}   
                             onFilterRemoved={removeFilter}
                             onSortOptionSelected={setSort}
                         />
@@ -93,7 +98,9 @@ export const Products = ({ selectedCategory }) => {
                             <Filter
                                 minPrice={minPrice}
                                 maxPrice={maxPrice}
-                                onFilterAdded={addFilter}
+                                filters={filters}         
+                                sortOption={sortOption}
+                                onFilterAdded={addFilter}   
                                 onFilterRemoved={removeFilter}
                                 onSortOptionSelected={setSort}
                             />

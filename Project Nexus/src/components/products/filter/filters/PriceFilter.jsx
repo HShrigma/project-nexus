@@ -5,10 +5,11 @@ const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 export const PriceFilter = ({
     minPrice = 0,
     maxPrice = 1000,
+    savedPrices,
     onPriceRangeChanged,
 }) => {
-    const [min, setMin] = useState(minPrice);
-    const [max, setMax] = useState(maxPrice);
+    const [min, setMin] = useState(savedPrices ?  savedPrices.min : minPrice);
+    const [max, setMax] = useState(savedPrices ?  savedPrices.max : maxPrice);
     const [activeHandle, setActiveHandle] = useState(null);
     const sliderRef = useRef(null);
 
@@ -16,6 +17,12 @@ export const PriceFilter = ({
         setMin(minPrice);
         setMax(maxPrice);
     }, [minPrice, maxPrice]);
+
+    useEffect(() => {
+        if(!savedPrices) return;
+        setMin(savedPrices.min);
+        setMax(savedPrices.max);
+    }, [savedPrices]);
 
     const updateValueFromPointer = (e) => {
         if (!activeHandle || !sliderRef.current) return;

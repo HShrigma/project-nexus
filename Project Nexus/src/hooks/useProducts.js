@@ -106,6 +106,8 @@ export const useProducts = (selectedCategory) => {
         setSort,
         hasMore: displayCount < filteredProducts.length,
         minPrice,
-        maxPrice
+        maxPrice,
+        filters,
+        sortOption
     };
 };

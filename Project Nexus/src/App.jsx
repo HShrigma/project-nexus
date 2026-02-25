@@ -12,6 +12,7 @@ function App() {
             <Header
                 onCategorySelected={(category) => handleCategorySelected(category)}
                 categories={categories}
+                selectedCategory={selectedCategory}
             />
             <Products
                 selectedCategory={selectedCategory}

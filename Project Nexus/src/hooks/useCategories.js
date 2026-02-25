@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export const useCategories = () => {
-    const [categories, setCategories] = useState([{ id: 1, name: "Bags", description: "All bags" }, { id: 2, name: "Shoes", description: "All shoes" }]);
+    const [categories, setCategories] = useState([{ id: 1, name: "Bags", description: "Luxury bags" }, { id: 2, name: "Shoes", description: "Luxury shoes" }]);
     const [selectedCategory, setSelectedCategory] = useState();
 
     useEffect(() => {

@@ -49,8 +49,8 @@ export const Products = ({ selectedCategory }) => {
             {/* Content layout */}
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
                 {/* Desktop Filters */}
-                <aside className="hidden lg:block lg:col-span-1">
-                    <div className="rounded-lg border border-neutral-200 bg-white p-4">
+                <aside className="sticky hidden lg:block lg:col-span-1">
+                    <div className="sticky top-24 rounded-lg border border-neutral-200 bg-white p-4">
                         <Filter
                             minPrice={minPrice}
                             maxPrice={maxPrice}

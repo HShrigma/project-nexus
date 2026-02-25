@@ -9,7 +9,7 @@ A responsive, luxury-inspired e-commerce product listing frontend built with Rea
 3. [Development Process](#development-process)
 4. [Component Architecture](#component-architecture)
 5. [Key Features](#key-features)
-6. [UX & Design Philosophy](ux--design-philosophy)
+6. [UX & Design Philosophy](#ux--design-philosophy)
 7. [Data Handling](#data-handling)
 8. [Getting Started](#getting-started)
 

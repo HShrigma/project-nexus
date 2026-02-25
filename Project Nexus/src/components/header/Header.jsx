@@ -1,15 +1,18 @@
 import AppLogo from "./AppLogo";
 import HeaderNavigation from "./HeaderNavigation";
 
-export const Header = ({categories, onCategorySelected}) => {
+export const Header = ({ categories, onCategorySelected }) => {
     return (
-        <div>
-            <AppLogo/>
-            <HeaderNavigation 
-                categories={categories}
-                onCategorySelected={(category) => onCategorySelected?.(category)}
-            />
-        </div>);
+        <header>
+            <div>
+                <AppLogo />
+                <HeaderNavigation
+                    categories={categories}
+                    onCategorySelected={(category) => onCategorySelected?.(category)}
+                />
+            </div>
+        </header>
+    );
 }
 
 export default Header;

@@ -51,6 +51,7 @@ export const Products = ({ selectedCategory }) => {
                 {/* Desktop Filters */}
                 <aside className="sticky hidden lg:block lg:col-span-1">
                     <div className="sticky top-24 rounded-lg border border-neutral-200 bg-white p-4">
+                        <h2 className="my-2 !text-lg font-bold">Filter By:</h2>
                         <Filter
                             minPrice={minPrice}
                             maxPrice={maxPrice}

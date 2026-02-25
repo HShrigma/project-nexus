@@ -22,7 +22,7 @@ export const Sorter = ({ onSortOptionSelected, sortOption }) => {
                             type="radio"
                             name="sortOption"
                             value={opt.value}
-                            checked={sortOption ? sortOption === opt.value : false}
+                            defaultChecked={sortOption === opt.value}
                             onChange={handleChange}
                             className="h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-500"
                         />

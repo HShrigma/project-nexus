@@ -8,8 +8,8 @@ export const PriceFilter = ({
     savedPrices,
     onPriceRangeChanged,
 }) => {
-    const [min, setMin] = useState(savedPrices ?  savedPrices.min : minPrice);
-    const [max, setMax] = useState(savedPrices ?  savedPrices.max : maxPrice);
+    const [min, setMin] = useState(savedPrices ? savedPrices.min : minPrice);
+    const [max, setMax] = useState(savedPrices ? savedPrices.max : maxPrice);
     const [activeHandle, setActiveHandle] = useState(null);
     const sliderRef = useRef(null);
 
@@ -19,7 +19,7 @@ export const PriceFilter = ({
     }, [minPrice, maxPrice]);
 
     useEffect(() => {
-        if(!savedPrices) return;
+        if (!savedPrices) return;
         setMin(savedPrices.min);
         setMax(savedPrices.max);
     }, [savedPrices]);

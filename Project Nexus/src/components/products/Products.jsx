@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { useProducts } from "../../hooks/useProducts";
 import CategoryTitle from "./category/CategoryTitle";
 import Filter from "./filter/Filter";
@@ -55,9 +55,9 @@ export const Products = ({ selectedCategory }) => {
                         <Filter
                             minPrice={minPrice}
                             maxPrice={maxPrice}
-                            filters={filters}         
+                            filters={filters}
                             sortOption={sortOption}
-                            onFilterAdded={addFilter}   
+                            onFilterAdded={addFilter}
                             onFilterRemoved={removeFilter}
                             onSortOptionSelected={setSort}
                         />
@@ -99,9 +99,9 @@ export const Products = ({ selectedCategory }) => {
                             <Filter
                                 minPrice={minPrice}
                                 maxPrice={maxPrice}
-                                filters={filters}         
+                                filters={filters}
                                 sortOption={sortOption}
-                                onFilterAdded={addFilter}   
+                                onFilterAdded={addFilter}
                                 onFilterRemoved={removeFilter}
                                 onSortOptionSelected={setSort}
                             />

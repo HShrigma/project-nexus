@@ -11,7 +11,7 @@ export const Header = ({ categories, onCategorySelected, selectedCategory }) => 
         <header className="sticky top-0 z-50 bg-white border-b border-neutral-200 px-6">
             <div className="flex h-20 items-center justify-between">
                 {/* Hamburger for mobile */}
-                <div 
+                <div
                     className="sm:hidden cursor-pointer hover:scale-105 transition"
                     onClick={() => setMobileMenuOpen(prev => !prev)}
                 >
@@ -45,18 +45,18 @@ export const Header = ({ categories, onCategorySelected, selectedCategory }) => 
                     </div>
                     <div className="flex flex-col bg-white border-t border-neutral-200 shadow-md">
                         {categories.map(item => (
-                        <HeaderNavItem
-                            key={item.id}
-                            label={item.name}
-                            selected={selectedCategory?.name === item.name}
-                            onCategorySelected={(label) => {
-                                onCategorySelected?.(label);
-                                setMobileMenuOpen(false); // close menu on selection
-                            }}
-                        />
-                    ))}
+                            <HeaderNavItem
+                                key={item.id}
+                                label={item.name}
+                                selected={selectedCategory?.name === item.name}
+                                onCategorySelected={(label) => {
+                                    onCategorySelected?.(label);
+                                    setMobileMenuOpen(false); // close menu on selection
+                                }}
+                            />
+                        ))}
                     </div>
-                    
+
                 </div>
             )}
         </header>

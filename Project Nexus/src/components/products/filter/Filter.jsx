@@ -34,8 +34,8 @@ export const Filter = ({
 
             {/* Section: Sorter */}
             <div className="pt-2">
-                <Sorter 
-                    onSortOptionSelected={onSortOptionSelected} 
+                <Sorter
+                    onSortOptionSelected={onSortOptionSelected}
                     sortOption={sortOption}
                 />
             </div>

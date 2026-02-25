@@ -28,7 +28,7 @@ export const useProducts = (selectedCategory) => {
         if (width >= 1280) return 4; // xl
         if (width >= 1024) return 3; // lg
         if (width >= 640) return 2;  // sm
-        return 1;                     // default
+        return 1;                    // default
     };
     const [columns, setColumns] = useState(getColumns());
     const rowsPerPage = 5;

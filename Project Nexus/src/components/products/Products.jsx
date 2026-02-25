@@ -19,16 +19,18 @@ export const Products = ({ selectedCategory }) => {
 
     return (
         <div>
-            <CategoryTitle
-                categoryTitle={selectedCategory?.name}
-                categoryDescription={selectedCategory?.description}
-            />
-            <ProductCounter
-                productsLength={totalProducts}
-                currentCount={products.length}
-            />
-            <ProductGrid products={products} />
-            {hasMore && <button onClick={loadMore}>Load More</button>}
+            <div className="flex flex-col">
+                <CategoryTitle
+                    categoryTitle={selectedCategory?.name}
+                    categoryDescription={selectedCategory?.description}
+                />
+                <ProductCounter
+                    productsLength={totalProducts}
+                    currentCount={products.length}
+                />
+                <ProductGrid products={products} />
+                {hasMore && <button onClick={loadMore}>Load More</button>}
+            </div>
             <Filter
                 minPrice={minPrice}
                 maxPrice={maxPrice}

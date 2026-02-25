@@ -1,74 +1,36 @@
 export const Sorter = ({ onSortOptionSelected }) => {
-    const handleChange = (event) => {
-        onSortOptionSelected(event.target.value);
-    };
+  const handleChange = (event) => {
+    onSortOptionSelected(event.target.value);
+  };
 
-    return (
-        <div>
-            <div style={{ marginBottom: '8px' }}>Sort by:</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <input
-                        type="radio"
-                        name="sortOption"
-                        value="A-Z"
-                        onChange={handleChange}
-                    />
-                    Alphabetical (A–Z)
-                </label>
-                
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <input
-                        type="radio"
-                        name="sortOption"
-                        value="Z-A"
-                        onChange={handleChange}
-                    />
-                    Alphabetical (Z–A)
-                </label>
-                
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <input
-                        type="radio"
-                        name="sortOption"
-                        value="0-1"
-                        onChange={handleChange}
-                    />
-                    Price (Low to High)
-                </label>
-                
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <input
-                        type="radio"
-                        name="sortOption"
-                        value="1-0"
-                        onChange={handleChange}
-                    />
-                    Price (High to Low)
-                </label>
-                
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <input
-                        type="radio"
-                        name="sortOption"
-                        value="R+"
-                        onChange={handleChange}
-                    />
-                    Rating (Low to High)
-                </label>
-                
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <input
-                        type="radio"
-                        name="sortOption"
-                        value="R-"
-                        onChange={handleChange}
-                    />
-                    Rating (High to Low)
-                </label>
-            </div>
-        </div>
-    );
+  const options = [
+    { label: "Alphabetical (A–Z)", value: "A-Z" },
+    { label: "Alphabetical (Z–A)", value: "Z-A" },
+    { label: "Price (Low to High)", value: "0-1" },
+    { label: "Price (High to Low)", value: "1-0" },
+    { label: "Rating (Low to High)", value: "R+" },
+    { label: "Rating (High to Low)", value: "R-" },
+  ];
+
+  return (
+    <div className="space-y-2">
+      <div className="text-sm font-medium">Sort by:</div>
+      <div className="flex flex-col gap-2">
+        {options.map((opt) => (
+          <label key={opt.value} className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="sortOption"
+              value={opt.value}
+              onChange={handleChange}
+              className="h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-500"
+            />
+            <span>{opt.label}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Sorter;

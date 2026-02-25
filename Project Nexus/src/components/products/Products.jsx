@@ -7,7 +7,6 @@ import ProductGrid from "./ProductGrid";
 
 export const Products = ({ selectedCategory }) => {
     const [showFilters, setShowFilters] = useState(false);
-
     const {
         products,
         totalProducts,
@@ -105,7 +104,6 @@ export const Products = ({ selectedCategory }) => {
                         >
                             Save & Close
                         </button>
-
                     </div>
                 </div>
             )}

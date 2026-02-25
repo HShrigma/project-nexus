@@ -10,11 +10,11 @@ export const Product = ({ product }) => {
         ">
             {/* Image */}
             <div className="
-                aspect-square w-full overflow-hidden rounded-md bg-neutral-100
+                aspect-square w-full overflow-hidden rounded-md bg-neutral-100 border-neutral-200 border-1
                 max-h-40 sm:max-h-none
             ">
                 <img
-                    src={reactSvg}
+                    src={product?.img ?? reactSvg}
                     alt={product?.name ?? "Product image"}
                     className="h-full w-full object-contain"
                 />

@@ -1,16 +1,27 @@
 import { useState, useMemo, useEffect } from 'react';
+import bag1 from "../assets/bag1.webp";
+import bag2 from "../assets/bag2.webp";
+import bag3 from "../assets/bag3.webp";
+import shoes1 from "../assets/shoes1.webp";
+import shoes2 from "../assets/shoes2.webp";
+import shoes3 from "../assets/shoes3.webp";
+import shoes4 from "../assets/shoes4.webp";
+import shoes5 from "../assets/shoes5.webp";
+import shoes6 from "../assets/shoes6.webp";
+import shoes7 from "../assets/shoes7.webp";
+
 export const useProducts = (selectedCategory) => {
     const [products, setProducts] = useState([
-        { id: 1, categoryId: 1, name: "Bag 1", description: "sample description 1", price: 78, rating: 4, color: "red" },
-        { id: 2, categoryId: 1, name: "Bag 2", description: "sample description 2", price: 16, rating: 4, color: "red" },
-        { id: 3, categoryId: 2, name: "Shoes 1", description: "sample description 1", price: 66, rating: 2, color: "green" },
-        { id: 4, categoryId: 2, name: "Shoes 2", description: "sample description 2", price: 234, rating: 4, color: "green" },
-        { id: 5, categoryId: 2, name: "Shoes 3", description: "sample description 3", price: 2847, rating: 5, color: "green" },
-        { id: 6, categoryId: 2, name: "Shoes 4", description: "sample description 4", price: 234, rating: 4, color: "red" },
-        { id: 7, categoryId: 2, name: "Shoes 5", description: "sample description 5", price: 2847, rating: 5, color: "red" },
-        { id: 8, categoryId: 2, name: "Shoes 6", description: "sample description 6", price: 39, rating: 4, color: "blue" },
-        { id: 9, categoryId: 2, name: "Shoes 7", description: "sample description 7", price: 39, rating: 4, color: "blue" },
-        { id: 10, categoryId: 1, name: "Bag 3", description: "sample description 3", price: 26, rating: 5, color: "blue" }]);
+        { id: 1, categoryId: 1, name: "Bag 1", description: "sample description 1", price: 78, rating: 4, color: "red", img: bag1 },
+        { id: 2, categoryId: 1, name: "Bag 2", description: "sample description 2", price: 16, rating: 4, color: "red", img: bag2 },
+        { id: 3, categoryId: 2, name: "Shoes 1", description: "sample description 1", price: 66, rating: 2, color: "green", img: shoes1 },
+        { id: 4, categoryId: 2, name: "Shoes 2", description: "sample description 2", price: 234, rating: 4, color: "green", img: shoes2 },
+        { id: 5, categoryId: 2, name: "Shoes 3", description: "sample description 3", price: 2847, rating: 5, color: "green", img: shoes3 },
+        { id: 6, categoryId: 2, name: "Shoes 4", description: "sample description 4", price: 234, rating: 4, color: "red", img: shoes4 },
+        { id: 7, categoryId: 2, name: "Shoes 5", description: "sample description 5", price: 2847, rating: 5, color: "red", img: shoes5 },
+        { id: 8, categoryId: 2, name: "Shoes 6", description: "sample description 6", price: 39, rating: 4, color: "blue", img: shoes6 },
+        { id: 9, categoryId: 2, name: "Shoes 7", description: "sample description 7", price: 39, rating: 4, color: "blue", img: shoes7 },
+        { id: 10, categoryId: 1, name: "Bag 3", description: "sample description 3", price: 26, rating: 5, color: "blue", img: bag3 }]);
 
     const getColumns = () => {
         const width = window.innerWidth;

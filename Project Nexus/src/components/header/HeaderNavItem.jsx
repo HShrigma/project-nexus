@@ -1,10 +1,6 @@
 import { useEffect } from "react";
 
 export const HeaderNavItem = ({ label, onCategorySelected, selected }) => {
-    useEffect(() => {
-        console.log(label, "selected changed:", selected);
-    }, [selected]);
-
     if (!label) return null;
 
     const handleClick = () => {

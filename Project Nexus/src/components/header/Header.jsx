@@ -19,7 +19,6 @@ export const Header = ({ categories, onCategorySelected, selectedCategory }) => 
                 </div>
 
                 <AppLogo />
-
                 {/* Desktop nav */}
                 <HeaderNavigation
                     categories={categories}
@@ -40,8 +39,12 @@ export const Header = ({ categories, onCategorySelected, selectedCategory }) => 
 
             {/* Mobile dropdown menu */}
             {mobileMenuOpen && (
-                <div className="sm:hidden flex flex-col bg-white border-t border-neutral-200 shadow-md">
-                    {categories.map(item => (
+                <div className="sm:hidden flex flex-col">
+                    <div className="flex text-base font-light items-center">
+                        <p>Categories</p>
+                    </div>
+                    <div className="flex flex-col bg-white border-t border-neutral-200 shadow-md">
+                        {categories.map(item => (
                         <HeaderNavItem
                             key={item.id}
                             label={item.name}
@@ -52,6 +55,8 @@ export const Header = ({ categories, onCategorySelected, selectedCategory }) => 
                             }}
                         />
                     ))}
+                    </div>
+                    
                 </div>
             )}
         </header>

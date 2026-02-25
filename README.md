@@ -9,11 +9,11 @@ A responsive, luxury-inspired e-commerce product listing frontend built with Rea
 3. [Development Process](#development-process)
 4. [Component Architecture](#component-architecture)
 5. [Key Features](#key-features)
-6. [UX & Design Philosophy](#ux-design)
+6. [UX & Design Philosophy](ux--design-philosophy)
 7. [Data Handling](#data-handling)
 8. [Getting Started](#getting-started)
 
-## Overview {#overview}
+## Overview
 
 Project Nexus is a single-page frontend application designed for a luxury e-commerce experience. The goal was to build a maintainable, responsive product listing page while showcasing both coding discipline and design sensibility.
 
@@ -25,7 +25,7 @@ The project prioritizes:
 
 - **Luxury aesthetic**: monochrome palette, subtle cues, classical fonts
 
-## Tech Stack {#tech-stack}
+## Tech Stack
 
 - **React** – for component-based UI and reusable hooks
 
@@ -43,7 +43,7 @@ The project prioritizes:
 
 - React hooks abstract all business logic, making components purely presentational.
 
-## Development Process {#development-process}
+## Development Process
 
 1. **Skeleton** – scaffold all components first (header, footer, products) to create a functional structure.
 
@@ -53,7 +53,7 @@ The project prioritizes:
 
 **Git workflow**: separate branches for skeleton → functionality → styling, reflecting real-world maintainable development practices.
 
-## Component Architecture {#component-architecture}
+## Component Architecture
 
 - **Header** – sticky, responsive navigation with desktop nav and mobile hamburger menu.
 
@@ -67,7 +67,7 @@ The project prioritizes:
 
 **Key principle**: Components are purely presentational; all business logic is abstracted into hooks to maximize reusability and clarity.
 
-## Key Features {#key-features}
+## Key Features
 
 - **Responsive Product Grid** – adapts columns to screen size dynamically.
 
@@ -83,7 +83,7 @@ The project prioritizes:
 
 - **Subtle UX** – hover effects, subtle shadows, and spacing for a premium feel.
 
-## UX & Design Philosophy {#ux-design}
+## UX & Design Philosophy
 
 - **Luxury-inspired aesthetic**: white background, black text, minimal rounding, classical fonts for titles.
 
@@ -97,7 +97,7 @@ The project prioritizes:
 
 > The design aims to evoke the feeling of entering a boutique rather than an arcade - subtle, refined, and user-focused.  
 
-## Data Handling {#data-handling}
+## Data Handling
 
 - Product and category data stored in **React state** to simulate API calls.
 
@@ -105,7 +105,7 @@ The project prioritizes:
 
 - `useProducts` hook manages filtering, sorting, pagination, and syncing filter state across mobile and desktop.
 
-## Getting Started {#getting-started}
+## Getting Started
 
 1. Install dependencies:
 
